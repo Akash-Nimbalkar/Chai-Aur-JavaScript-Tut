@@ -59,3 +59,36 @@ console.log(typeof valueInNumber6)
 "" => false
 "JSPM" => NaN
  */
+
+// ***************** Oprations *****************
+let value = 9
+let negValue = -value
+console.log(negValue)
+
+let str1 = "Hello"
+let str2 = " Akash"
+console.log(str1+str2)
+
+console.log(1 + '2')
+console.log('1' + 2)
+console.log('1' + 2 + 2)
+console.log(1 + 2 + '2')
+console.log(true)
+console.log(+true)
+console.log(5+true)
+
+// console.log(true+) //Not allowed
+console.log(+"")
+
+//This type of code is not advisable
+let num1, num2, nums3
+num1 = num2 = num3 = 2+2
+
+let gameCounter = 100
+gameCounter++
+console.log(gameCounter)
+
+let x2 = 3n;
+const y2 = x2++;
+
+console.log(x2,y2)

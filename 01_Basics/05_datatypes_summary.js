@@ -29,3 +29,25 @@ const myFunction = function()
 
 console.log(typeof null )
 console.log(typeof myFunction )
+
+//+++++++++++++++++++++++ Memory in JavaScript +++++++++++++++++++++++++++++++++++
+
+// STack(Primitive) , Heap(Non-primitive)
+
+let myName = "Akash"
+let anotherName = myName
+console.log(myName, anotherName);
+anotherName = "Audumbar"
+console.log(myName, anotherName);
+
+let userOne = {
+    email : "user@google.com",
+    upi : "user@ybl"
+};
+
+let userTwo = userOne
+console.log(userOne, userTwo)
+
+userTwo.upi = "user@oksbi"
+
+console.log(userOne, userTwo)

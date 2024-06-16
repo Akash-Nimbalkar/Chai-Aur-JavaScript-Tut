@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+
+  <script>
+    //1. This is not recommended
+    // document.getElementById('owl').onclick = function()
+    // {
+    //     alert("You have clicked on owl!");
+    // }
+
+    /* document.getElementById("owl").addEventListener(
+      "click",
+      function (e) {
+        console.log(e.timeStamp);
+      },
+      false
+    ); */
+
+    //Study these for interview
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clienty, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    //Bubbling mode : By default 3rd parameter is false, it goes in bubbling mode, from bottom to top so it first shows inside event message and then outside event msg
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("Clicked inside the ul");
+    //   },
+    //   false
+    // );
+
+    // document.getElementById("owl").addEventListener(
+    //   "click",
+    //   function (e) {
+    //     console.log("Owl clicked");
+    //     e.stopPropagation(); //Event will not go to upside event i.e. bubbling will be stopped!
+    //   },
+    //   false
+    // );
+
+    // //Capturing mode : 3rd parameter is true, it goes in capturing mode, from top to bottom so it first shows outside event message and then inside event msg
+
+    document.getElementById("google").addEventListener("click", function (e) {
+      console.log("google clicked");
+      e.preventDefault();
+      // e.stopPropagation();
+    });
+
+    //PS : Add event such that on clicking any image, that image will be disappeared
+    document.querySelector("#images").addEventListener("click", function (e) {
+      if (e.target.tagName === 'IMG') {
+        let toRemoveNode = e.target.parentNode;
+        toRemoveNode.remove();
+      }
+
+      //Another approach : toRemoveNode.parentNode.removeChild(toRemoveNode);
+    });
+  </script>
+</html>

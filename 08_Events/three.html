@@ -1,0 +1,34 @@
+<!-- Asynchronous Javascript -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #414141">
+    <h1>Chai Aur JavaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    // setInterval(function () {
+    //   console.log("Akash", Date.now());
+    // }, 10000);
+
+    const sayDate = function (str) {
+      console.log(str, Date.now());
+    };
+
+    //PS : Use start and stop buttons to start the interval printing and to stop the same
+    let intervalID;
+    document.querySelector("#start").addEventListener("click", function (e) {
+      intervalID = setInterval(sayDate, 1000, "Akash");
+    });
+
+    document.querySelector("#stop").addEventListener("click", function (e) {
+      clearInterval(intervalID);
+    });
+  </script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure</title>
+  </head>
+  <body style="background-color: #414141">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+  <script>
+    // function init() {
+    //   let name = "Mozilla";
+    //   function displayName() {
+    //     console.log(name);
+    //   }
+    //   displayName();
+    // }
+    // init();
+
+    /*function outer() {
+      let username = "akash";
+      console.log(secret); //This will throw an error because parent's can't borrow chocolates from their kids
+
+      //All Inner functions will have access of all variables defined in outer functions
+      function inner() {
+        let secret = "my123";
+        console.log("Inner", username);
+      }
+
+      function innerTwo() {
+        console.log("InnerTwo", username);
+        console.log(secret);
+      }
+
+      inner();
+      innerTwo();
+    }
+
+    outer();
+    console.log("Too Outer", username); */
+
+    function makeFunc() {
+      const name = "Mozilla";
+      function displayName() {
+        console.log(name);
+      }
+      return displayName; //Here full lexical scope of displayName() function is returned i.e makeFunc scope too that is nothing but closure
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+    // displayName maintains a reference to its outer lexical environment (where name is defined),
+    // even after makeFunc() has finished executing. This is known as closure.
+  </script>
+
+  <script>
+    function clickHandler(color) {
+      return function () {
+        document.body.style.backgroundColor = color;
+      };
+    }
+
+    document.getElementById("orange").onclick = clickHandler("orange");
+    document.getElementById("green").onclick = clickHandler("green");
+  </script>
+</html>
